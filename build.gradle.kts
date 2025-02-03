@@ -21,6 +21,10 @@ dependencies {
     // (in a separate module for demo project and in testMain).
     // With compose.desktop.common you will also lose @Preview functionality
     implementation(compose.desktop.currentOs)
+    implementation("org.ktorm:ktorm-core:4.1.1")
+    implementation("org.ktorm:ktorm-support-mysql:3.6.0")
+    implementation("com.mysql:mysql-connector-j:8.3.0")
+
 }
 
 compose.desktop {
