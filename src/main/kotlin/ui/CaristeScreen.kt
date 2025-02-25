@@ -59,6 +59,9 @@ fun UserTable(caristes: List<CaristesEntity>) {
                 Text("ID", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
                 Text("Prénom", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
                 Text("Nom", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Date de naissance", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Date d'embauche", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Login", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
             }
 
             Divider()
@@ -75,6 +78,9 @@ fun UserTable(caristes: List<CaristesEntity>) {
                         Text(cariste.id.toString(), modifier = Modifier.weight(1f))
                         Text(cariste.firstName.toString(), modifier = Modifier.weight(1f))
                         Text(cariste.lastName.toString(), modifier = Modifier.weight(1f))
+                        Text(cariste.dateNaissance.toString(), modifier = Modifier.weight(1f))
+                        Text(cariste.dateEmbauche.toString(), modifier = Modifier.weight(1f))
+                        Text(cariste.login.toString(), modifier = Modifier.weight(1f))
                     }
                     Divider()
                 }

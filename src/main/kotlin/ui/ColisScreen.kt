@@ -58,7 +58,11 @@ fun ColisTable(colis: List<ColisEntity>) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text("ID", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Longueur", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Largeur", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Hauteur", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
                 Text("Poid", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
+                Text("Date de Stockage", modifier = Modifier.weight(1f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
             }
 
             Divider()
@@ -72,7 +76,11 @@ fun ColisTable(colis: List<ColisEntity>) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(colis.id.toString(), modifier = Modifier.weight(1f))
+                        Text(colis.longueur.toString(), modifier = Modifier.weight(1f))
+                        Text(colis.largeur.toString(), modifier = Modifier.weight(1f))
+                        Text(colis.hauteur.toString(), modifier = Modifier.weight(1f))
                         Text(colis.poids.toString(), modifier = Modifier.weight(1f))
+                        Text(colis.dateStock.toString(), modifier = Modifier.weight(1f))
                     }
                 }
             }
