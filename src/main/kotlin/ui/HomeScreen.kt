@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import routing.Routes
 
 
@@ -13,7 +14,7 @@ import routing.Routes
 fun HomeScreen(onNavigate: (Routes) -> Unit) {
 
     Column {
-        Text("Coucou")
+        Text("Accueil")
         Button(
             onClick = { onNavigate(Routes.CARISTE)}
         ) {
@@ -23,6 +24,15 @@ fun HomeScreen(onNavigate: (Routes) -> Unit) {
             onClick = { onNavigate(Routes.COLIS)}
         ) {
             Text("Gestion des Colis")
+        }
+        Button(
+            onClick = { onNavigate(Routes.LOGIN)},
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Red, //Couleur fond du bouton
+                contentColor = Color.White //Couleur de l'écriture
+             )
+        ) {
+            Text("Deconnexion")
         }
     }
 }
