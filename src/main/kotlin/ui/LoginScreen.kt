@@ -12,7 +12,7 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.input.key.*
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
@@ -29,7 +29,19 @@ fun LoginScreen(onLogin: (String, String) -> Unit){
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
     Column(
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier.padding(16.dp)
+        .onPreviewKeyEvent {
+        if (it.type == KeyEventType.KeyDown && it.key == Key.Enter) {
+            if (email.text.isNotEmpty() && password.text.isNotEmpty()) {
+                onLogin(email.text, password.text)
+            } else {
+                errorMessage = "Veuillez remplir tous les champs"
+            }
+            true
+        } else {
+            false
+        }
+    },
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ){
         Text("Connexion", fontSize = 24.sp)

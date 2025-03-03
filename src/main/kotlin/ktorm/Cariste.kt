@@ -4,7 +4,7 @@ import ktorm.entity.CaristesEntity
 import org.ktorm.schema.*
 
 object Caristes : Table<CaristesEntity>("caristes") {
-    val id = int("ID").primaryKey().bindTo { it.id }
+    val ID_Cariste = int("ID_Cariste").primaryKey().bindTo { it.ID_Cariste }
     val firstName = varchar("Prenom").bindTo { it.firstName }
     val lastName = varchar("Nom").bindTo { it.lastName }
     val MDP = varchar("MDP").bindTo { it.mdp }

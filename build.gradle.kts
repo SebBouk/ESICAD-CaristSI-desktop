@@ -8,6 +8,7 @@ plugins {
 
 group = "com.esicad.caristsi"
 version = "1.0-SNAPSHOT"
+var koin_version = "4.0.2"
 
 repositories {
     mavenCentral()
@@ -24,7 +25,11 @@ dependencies {
     implementation("org.ktorm:ktorm-core:4.1.1")
     implementation("org.ktorm:ktorm-support-mysql:3.6.0")
     implementation("com.mysql:mysql-connector-j:8.3.0")
-
+    implementation(project.dependencies.platform("io.insert-koin:koin-bom:$koin_version"))
+    implementation("io.insert-koin:koin-core")
+    implementation("io.insert-koin:koin-compose:$koin_version")
+    implementation("io.insert-koin:koin-compose-viewmodel:$koin_version")
+    implementation("io.insert-koin:koin-compose-viewmodel-navigation:$koin_version")
 }
 
 compose.desktop {

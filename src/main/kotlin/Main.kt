@@ -7,15 +7,13 @@ import androidx.compose.ui.window.application
 import org.ktorm.database.Database
 import org.ktorm.database.asIterable
 import androidx.compose.material.*
+import androidx.compose.ui.window.WindowPlacement
+import androidx.compose.ui.window.WindowState
 import ktorm.Caristes
 import org.ktorm.dsl.*
 import routing.Router
 import routing.Routes
-import ui.CaristeScreen
-import ui.ColisScreen
-import ui.HomeScreen
-import ui.LoginScreen
-
+import ui.*
 
 
 @Composable
@@ -47,9 +45,13 @@ fun App(database: Database) {
                 Routes.COLIS -> ColisScreen(database = database) {
                         route -> router.navigateTo(route)
                 }
+                Routes.EMPLACEMENT -> EmplacementScreen(database = database){
+                    route -> router.navigateTo(route)
+                }
+                Routes.ALLEE -> AlleeScreen(database = database){
+                    route -> router.navigateTo(route)
+                }
             }
-
-
         }
     }
 }
@@ -58,7 +60,6 @@ fun App(database: Database) {
 
         val database = Database.connect(
             url = "jdbc:mysql://localhost:3306/carist-si",
-            driver = "com.mysql.jdbc.Driver",
             user = "root",
             password = null
         )
@@ -74,7 +75,11 @@ fun App(database: Database) {
 
 
 
-        Window(onCloseRequest = ::exitApplication, title = "Application") {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = "Carist-SI",
+            state = WindowState(placement = WindowPlacement.Maximized)
+        ) {
             App(database)
         }
     }
